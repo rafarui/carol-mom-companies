@@ -41,6 +41,6 @@ def send_to_carol(results, connector_name, staging_name, login=None):
     # send
     logger.info(f'Sending {len(results)} records to connector/staging {connector_name}/{staging_name}.')
     stag.send_data(staging_name=staging_name, data=results, connector_name=connector_name,
-                   async_send=True, step_size=1000, max_workers=3)
+                   async_send=True, step_size=1000, max_workers=3, force=True)
 
     return True
