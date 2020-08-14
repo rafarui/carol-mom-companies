@@ -25,6 +25,9 @@ if is_cloud_target == 'False':
 else:
     is_cloud_target = True
 
+
+mock_file =  os.environ.get('MOCKFILE', None)
+
 PROJECT_PATH = os.getcwd()
 TARGET_PATH = os.path.join(PROJECT_PATH, 'luigi_targets')
 Task.TARGET_DIR = TARGET_PATH
@@ -90,4 +93,5 @@ params = dict(
     prefix_company=prefix_company,
     prefix_partner=prefix_partner,
     prefix_cnae=prefix_cnae,
+    mock_file=mock_file,
 )

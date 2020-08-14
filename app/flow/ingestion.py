@@ -20,12 +20,15 @@ class IngestCnaeInfo(commons.Task):
         return out
 
 
-class DonwlaodFileReceita(commons.Task):
+class DownlaodFileReceita(commons.Task):
 
     target_type = ZipTarget
     download_link = commons.Parameter()
     file_creation = commons.Parameter()
     file_size = commons.Parameter()
+    mock_file = commons.Parameter(default=None)
 
     def easy_run(self, inputs):
+        if self.mock_file is not None:
+            return self.mock_file
         return download_from_url(url=self.download_link)

@@ -58,7 +58,7 @@ class DynamicSend(commons.Task):
                 staging=commons.staging_company,
                 connector_name=commons.connector_company,
                 record_type=self.prefix_company,
-                **self.get_execution_params(),
+                **commons.params,
             ) for row in data.itertuples(index=False)
         ])
 
@@ -70,7 +70,7 @@ class DynamicSend(commons.Task):
                 staging=commons.staging_sec_cnae_,
                 connector_name=commons.connector_sec_cnae,
                 record_type=self.prefix_cnae,
-                **self.get_execution_params(),
+                **commons.params,
             ) for row in data.itertuples(index=False)
         ])
 
@@ -82,7 +82,7 @@ class DynamicSend(commons.Task):
                 staging=commons.staging_partner,
                 connector_name=commons.connector_partner,
                 record_type=self.prefix_partner,
-                **self.get_execution_params(),
+                **commons.params,
             ) for row in data.itertuples(index=False)
         ])
 

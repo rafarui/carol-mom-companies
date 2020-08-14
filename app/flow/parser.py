@@ -10,7 +10,7 @@ luigi.auto_namespace(scope=__name__)
 
 
 @inherit_list(
-    ingestion.DonwlaodFile,
+    ingestion.DownlaodFileReceita,
     ingestion.IngestCnaeInfo
 )
 class ParseFile(commons.Task):
