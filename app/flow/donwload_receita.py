@@ -16,7 +16,7 @@ class FileTarget(CDSTarget):
     Important note: when loading the target, its local copy will not be automatically removed.
     """
 
-    FILE_EXT = 'file'
+    FILE_EXT = 'zip'
 
     def load_cds(self):
         return self.storage.load(self.path, format='file', cache=False)
@@ -34,7 +34,6 @@ class FileTarget(CDSTarget):
 
 class getFiles(commons.Task):
     target_type = ParquetTarget
-    resources = {'gpu': 1}
     server_ip = commons.Parameter()
     prefix_file = commons.Parameter()
     execution_timestamp = commons.Parameter()
@@ -46,7 +45,6 @@ class getFiles(commons.Task):
 class donwlaodFile(commons.Task):
 
     target_type = FileTarget
-    resources = {'gpu': 1}
     download_link = commons.Parameter()
     file_creation = commons.Parameter()
     file_size = commons.Parameter()
@@ -57,7 +55,6 @@ class donwlaodFile(commons.Task):
 class parseFile(commons.Task):
 
     target_type = FileTarget
-    resources = {'gpu': 1}
     download_link = commons.Parameter()
     file_creation = commons.Parameter()
     file_size = commons.Parameter()

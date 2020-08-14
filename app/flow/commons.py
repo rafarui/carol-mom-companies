@@ -1,6 +1,9 @@
 import sys, os, shutil
 import luigi
 
+from dotenv import load_dotenv
+load_dotenv('.env', override=True)
+
 luigi.interface.InterfaceLogging.setup(luigi.interface.core())
 import datetime
 import os, time
@@ -28,7 +31,6 @@ Task.is_cloud_target = is_cloud_target
 Task.version = Parameter()
 Task.tenant = Parameter()
 Task.resources = {'cpu': 1}
-max_cpu = 30
 
 # https://receita.economia.gov.br/orientacao/tributaria/cadastros/cadastro-nacional-de-pessoas-juridicas-cnpj/dados-publicos-cnpj
 server_ip = 'http://200.152.38.155/CNPJ/'
