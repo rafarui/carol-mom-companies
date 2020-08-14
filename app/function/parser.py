@@ -7,7 +7,8 @@ from app.function.cfwf import read_cfwf
 
 from app.function.mappings_parser import (
     situacao_mapping, company_size, matriz_filial_mapping,
-    cadastral_situation_description_mapping, tipo_socio_mapping
+    cadastral_situation_description_mapping, tipo_socio_mapping,
+    natureza_mapping
 )
 
 import logging
@@ -168,6 +169,7 @@ def process_empresa(df, subclass_cnaes=None):
     df['porte_description'] = df['porte'].map(company_size)
     df['matriz_filial_description'] = df['matriz_filial'].map(matriz_filial_mapping)
     df['motivo_situacao_description'] = df['motivo_situacao'].map(cadastral_situation_description_mapping)
+    df['cod_nat_juridica_description'] = df['cod_nat_juridica'].map(natureza_mapping)
 
     if subclass_cnaes is not None:
         df['cnae_fiscal_description'] = df['cnae_fiscal'].map(subclass_cnaes)
