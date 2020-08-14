@@ -32,7 +32,7 @@ class DownlaodFileReceita(commons.Task):
     mock_file = commons.Parameter(default=None)
 
     def easy_run(self, inputs):
-        if self.mock_file is not None:
+        if self.mock_file is not None and self.mock_file!='None':  # damn you luigi
             logger.warning('Running Mock Function')
             return self.mock_file
         return download_from_url(url=self.download_link)
