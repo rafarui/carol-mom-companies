@@ -43,13 +43,13 @@ prefix_file = 'DADOS_ABERTOS_CNPJ'
 
 connector_name = 'receita_federal'
 
-staging_partner = 'partner_receita'
+staging_partner = 'receita_partner_dataset'
 connector_partner = connector_name
 
-staging_company = 'company_receita'
+staging_company = 'receita_company_dataset'
 connector_company = connector_name
 
-staging_sec_cnae_ = 'secondary_cnae_receita'
+staging_sec_cnae_ = 'receita_secondary_cnaes'
 connector_sec_cnae = connector_name
 
 # mapping cnae
