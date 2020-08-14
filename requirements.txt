@@ -1,0 +1,8 @@
+pandas
+numpy
+numexpr
+python-dotenv
+pycarol[complete]
+bs4
+python-json-logger
+tqdm
