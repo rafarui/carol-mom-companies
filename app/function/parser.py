@@ -3,7 +3,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 import pandas as pd
-from cfwf import read_cfwf
+from app.function.cfwf import read_cfwf
 
 from app.function.mappings_parser import (
     situacao_mapping, company_size, matriz_filial_mapping,
