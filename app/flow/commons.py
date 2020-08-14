@@ -2,6 +2,7 @@ import sys, os, shutil
 import luigi
 
 from dotenv import load_dotenv
+
 load_dotenv('.env', override=True)
 
 luigi.interface.InterfaceLogging.setup(luigi.interface.core())
@@ -9,6 +10,7 @@ import datetime
 import os, time
 import logging
 import traceback
+
 logger = logging.getLogger(__name__)
 
 from pycarol.carol import Carol
@@ -23,7 +25,6 @@ if is_cloud_target == 'False':
 else:
     is_cloud_target = True
 
-
 PROJECT_PATH = os.getcwd()
 TARGET_PATH = os.path.join(PROJECT_PATH, 'luigi_targets')
 Task.TARGET_DIR = TARGET_PATH
@@ -36,6 +37,27 @@ Task.resources = {'cpu': 1}
 server_ip = 'http://200.152.38.155/CNPJ/'
 prefix_file = 'DADOS_ABERTOS_CNPJ'
 # prefix_file = "LAYOUT_DADOS_ABERTOS"
+
+connector_name = 'receita_federal'
+
+staging_partner = 'partner_receita'
+connector_partner = connector_name
+
+staging_company = 'company_receita'
+connector_company = connector_name
+
+staging_sec_cnae_ = 'secondary_cnae_receita'
+connector_sec_cnae = connector_name
+
+# mapping cnae
+staging_cnae_mapping = 'cnae_information'
+connector_cnae_mapping = 'receita_federal'
+
+# prefix
+prefix_company = 'company'
+prefix_partner = 'partners'
+prefix_cnae = 'secondary_cnaes'
+
 
 @Task.event_handler(luigi.Event.FAILURE)
 def mourn_failure(task, exception):
@@ -60,7 +82,12 @@ login = Carol()
 params = dict(
     tenant=os.environ['CAROLTENANT'],  # carol tenant
     version=os.environ['CAROLAPPVERSION'],  # model version
-    execution_timestamp="1597396486.87124", #time.time(),  # execution timestamp
+    execution_timestamp="1597396486.87124",  # time.time(),  # execution timestamp
     server_ip=server_ip,
     prefix_file=prefix_file,
+    staging_cnae_mapping=staging_cnae_mapping,
+    connector_cnae_mapping=connector_cnae_mapping,
+    prefix_company=prefix_company,
+    prefix_partner=prefix_partner,
+    prefix_cnae=prefix_cnae,
 )

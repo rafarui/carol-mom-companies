@@ -5,11 +5,11 @@ import os
 
 def run():
     from app.flow import (
-        donwload_receita,
+        ingestion,
     )
     # production
     task_list = [
-        donwload_receita.DynamicDownload(**commons.params),
+        ingestion.DynamicDownload(**commons.params),
     ]
 
     return task_list

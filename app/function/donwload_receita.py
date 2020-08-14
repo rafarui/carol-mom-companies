@@ -5,7 +5,7 @@ from tqdm import tqdm
 import logging, os
 logger = logging.getLogger(__name__)
 
-def get_files(url, prefix_file='DADOS_ABERTOS_CNPJ' ):
+def get_files(url, prefix_file='DADOS_ABERTOS_CNPJ'):
 
     """
     Parse the data from Receita website
