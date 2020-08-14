@@ -4,6 +4,9 @@ import luigi
 from app.function import ingestion
 from app.flow.target import ZipTarget
 
+import logging
+logger = logging.getLogger(__name__)
+
 luigi.auto_namespace(scope=__name__)
 
 class IngestCnaeInfo(commons.Task):
@@ -30,5 +33,6 @@ class DownlaodFileReceita(commons.Task):
 
     def easy_run(self, inputs):
         if self.mock_file is not None:
+            logger.warning('Running Mock Function')
             return self.mock_file
         return download_from_url(url=self.download_link)
