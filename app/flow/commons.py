@@ -26,7 +26,7 @@ else:
     is_cloud_target = True
 
 
-mock_file =  os.environ.get('MOCKFILE', None)
+mock_file = os.environ.get('MOCKFILE', None)
 
 PROJECT_PATH = os.getcwd()
 TARGET_PATH = os.path.join(PROJECT_PATH, 'luigi_targets')
