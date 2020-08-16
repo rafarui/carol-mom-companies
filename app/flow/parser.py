@@ -15,6 +15,8 @@ luigi.auto_namespace(scope=__name__)
 )
 class ParseFile(commons.Task):
 
+    #allow only 2 parsers each time.
+    resources = {'cpu': 5}
     download_link = commons.Parameter()
     file_creation = commons.Parameter()
     file_size = commons.Parameter()
@@ -35,6 +37,7 @@ class ParseFile(commons.Task):
 )
 class SplitFiles(commons.Task):
 
+    resources = {'cpu': 5}
     download_link = commons.Parameter()
     file_creation = commons.Parameter()
     file_size = commons.Parameter()
