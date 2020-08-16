@@ -1,0 +1,40 @@
+
+{
+  "batch": {
+    "processes": [
+      {
+        "algorithmDescription": {
+          "pt-BR": "Process receita federal data",
+          "pt-US": "Process receita federal data"
+        },
+        "algorithmName": "processAll",
+        "algorithmTitle": {
+          "pt-BR": "Process receita federal data",
+          "pt-US": "Process receita federal data"
+        },
+        "instanceProperties": {
+          "environments": {
+            "WORKERS": "5",
+          },
+          "properties": {
+            "dockerName": "process-companies",
+            "flavor": "c1.large",
+            "preemptible": "false"
+          }
+        },
+        "name": "processAll"
+      }
+    ]
+  },
+  "docker": [
+    {
+      "dockerName": "process-companies",
+      "dockerTag": "0.0.1",
+      "gitBranch": "master",
+      "gitPath": "/",
+      "instanceType": "c1.small",
+      "gitDockerfileName": "Dockerfile",
+      "gitRepoUrl": "https://github.com/rafarui/carol-mom-companies.git"
+    }
+  ]
+}
