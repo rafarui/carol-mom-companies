@@ -43,7 +43,9 @@ def download_from_url(url, chunk_size=1024):
     dst = url.split('/')[-1]
     chunk_size = int(chunk_size)
     file_size = int(requests.head(url).headers["Content-Length"])
-    pbar = tqdm( total=file_size, unit='B', unit_scale=True, unit_divisor=1024, desc=url.split('/')[-1])
+    pbar = tqdm( total=file_size, unit='B', unit_scale=True,
+                 unit_divisor=1024, desc=url.split('/')[-1], mininterval=5,
+                 disable=False)
     req = requests.get(url, stream=True)
     with(open(dst, 'wb')) as f:
         for chunk in req.iter_content(chunk_size=chunk_size):
