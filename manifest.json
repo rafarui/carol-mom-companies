@@ -14,7 +14,7 @@
         },
         "instanceProperties": {
           "environments": {
-            "WORKERS": "5",
+            "WORKERS": "8",
           },
           "properties": {
             "dockerName": "process-companies",

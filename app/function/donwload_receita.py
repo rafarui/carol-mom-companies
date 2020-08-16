@@ -53,4 +53,5 @@ def download_from_url(url, chunk_size=1024):
                 f.write(chunk)
                 pbar.update(chunk_size)
     pbar.close()
+    logger.info(f'Downloaded {url}')
     return dst

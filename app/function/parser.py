@@ -315,7 +315,7 @@ def parse_file(
 
             table = pa.Table.from_pandas(df)
             if i_bloco == 0:
-                prefix_file = os.path.basename(file).split('.')[0]
+                prefix_file = os.path.basename(file)[:-4]
                 parquet_filename = f"{prefix_file}_{REGISTROS_TIPOS[tipo_registro]}.parquet"
                 all_files.update({REGISTROS_TIPOS[tipo_registro]: parquet_filename})
                 parquet_writers[REGISTROS_TIPOS[tipo_registro]] = pq.ParquetWriter(parquet_filename, table.schema)
